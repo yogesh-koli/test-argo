@@ -11,7 +11,7 @@ spec:
     path: yogesh-koli/test-argo  # Path within the Git repository where manifests are located
   destination:
     server: test-1-dns-17jic8ac.hcp.centralus.azmk8s.io  # Kubernetes API server address
-    namespace: default  # Namespace to deploy into
+    namespace: argocd  # Namespace to deploy into
   syncPolicy:
     automated:
       prune: true  # Automatically delete resources that are not tracked in Git
