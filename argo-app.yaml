@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-app1
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/yogesh-koli/test-argo.git  # URL of your Git repository
+    targetRevision: master  # Git branch, tag, or commit
+    path: yogesh-koli/test-argo  # Path within the Git repository where manifests are located
+  destination:
+    server: test-1-dns-17jic8ac.hcp.centralus.azmk8s.io  # Kubernetes API server address
+    namespace: default  # Namespace to deploy into
+  syncPolicy:
+    automated:
+      prune: true  # Automatically delete resources that are not tracked in Git
+      selfHeal: true  # Automatically sync cluster state to Git state
