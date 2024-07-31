@@ -3,12 +3,12 @@ kind: Deployment
 metadata:
   name: test-deploy
   labels:
-    app: demo-pod
+    app: test-pod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo-pod
+      app: test-pod
   template:
     metadata:
       labels:
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: yogik001/test
-        image: image: yogik001/test:v1
+        image: yogik001/test:v1
         ports:
         - containerPort: 80
